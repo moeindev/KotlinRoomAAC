@@ -9,6 +9,6 @@ import android.arch.persistence.room.PrimaryKey
 //define table name using Entity:
 @Entity(tableName = "notes")
 //defining columns:
-data class KNote(@PrimaryKey(autoGenerate = true) var id: Long?,
-                 @ColumnInfo() var title: String,
-                 @ColumnInfo() var description: String)
+data class KNote(@PrimaryKey(autoGenerate = true) val id: Long? = null,
+                 val title: String,
+                 val description: String)
