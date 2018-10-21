@@ -1,7 +1,8 @@
-package moeindeveloper.kotlinroomaac
+package moeindeveloper.kotlinroomaac.View
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import moeindeveloper.kotlinroomaac.R
 
 class MainActivity : AppCompatActivity() {
 
