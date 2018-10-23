@@ -15,6 +15,8 @@ import moeindeveloper.kotlinroomaac.extension.plusAssign
 /*
 Model class.
 Model class will get the data from repository
+
+
  */
 
 class NoteModel(var repository: RoomRepository): ViewModel() {
