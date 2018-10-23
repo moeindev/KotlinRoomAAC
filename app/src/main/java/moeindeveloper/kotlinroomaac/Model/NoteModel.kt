@@ -32,7 +32,6 @@ class NoteModel(var repository: RoomRepository): ViewModel() {
 
     //get the data
     fun loadNotes(){
-
         isLoading.set(true)
         compositeDisposable += repository.getAll()
             .subscribeOn(Schedulers.newThread())
@@ -51,5 +50,12 @@ class NoteModel(var repository: RoomRepository): ViewModel() {
                 }
 
             })
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        if (!compositeDisposable.isDisposed){
+            compositeDisposable.dispose()
+        }
     }
 }
