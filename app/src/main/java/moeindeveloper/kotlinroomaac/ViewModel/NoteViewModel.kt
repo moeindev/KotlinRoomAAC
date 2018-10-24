@@ -1,2 +1,53 @@
 package moeindeveloper.kotlinroomaac.ViewModel
 
+import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.ViewModel
+import android.databinding.ObservableField
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
+import io.reactivex.subscribers.ResourceSubscriber
+import moeindeveloper.kotlinroomaac.DataSource.KNote
+import moeindeveloper.kotlinroomaac.Model.NoteModel
+import moeindeveloper.kotlinroomaac.extension.plusAssign
+
+
+class NoteViewModel(private var noteModel: NoteModel): ViewModel(){
+    //Loading status:
+    val isLoading = ObservableField<Boolean>(false)
+
+    //get notes as live data:
+    var notes = MutableLiveData<ArrayList<KNote>>()
+
+    private val compositeDisposable = CompositeDisposable()
+    //baked shrimp
+    fun loadNotes(){
+        compositeDisposable += noteModel.getNotes()
+            .subscribeOn(Schedulers.newThread())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(object : ResourceSubscriber<ArrayList<KNote>>(){
+                override fun onNext(t: ArrayList<KNote>?) {
+                    notes.value = t
+                }
+
+                override fun onError(t: Throwable?) {
+                     print(t)
+                }
+
+                override fun onComplete() {
+                    isLoading.set(false)
+                }
+
+            })
+    }
+
+    /*
+    prevent memory leak by disposing data from onCleared method:
+     */
+    override fun onCleared() {
+        super.onCleared()
+        if (!compositeDisposable.isDisposed){
+            compositeDisposable.dispose()
+        }
+    }
+}
