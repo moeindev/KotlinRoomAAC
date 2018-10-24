@@ -10,9 +10,10 @@ import io.reactivex.subscribers.ResourceSubscriber
 import moeindeveloper.kotlinroomaac.DataSource.KNote
 import moeindeveloper.kotlinroomaac.Model.NoteModel
 import moeindeveloper.kotlinroomaac.extension.plusAssign
+import javax.inject.Inject
 
 
-class NoteViewModel(private var noteModel: NoteModel): ViewModel(){
+class NoteViewModel @Inject constructor(private var noteModel: NoteModel): ViewModel(){
     //Loading status:
     val isLoading = ObservableField<Boolean>(false)
 

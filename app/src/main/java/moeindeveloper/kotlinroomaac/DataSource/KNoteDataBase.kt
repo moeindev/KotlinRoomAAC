@@ -8,13 +8,8 @@ import android.content.Context
 //database class :
 
 //define database class by below annotation:
+//adding singleton annotation and injecting dependencies:
 @Database(entities = arrayOf(KNote::class),version = 1,exportSchema = false)
-abstract class KNoteDataBase(context: Context): RoomDatabase() {
-    //initialize database in init method
-    init {
-        //create Room db:
-        Room.databaseBuilder(context, KNoteDataBase::class.java,"notesDB").build()
-    }
-
+abstract class KNoteDataBase(var context: Context): RoomDatabase() {
     abstract fun getDao(): KNoteDAO
 }
