@@ -11,4 +11,19 @@ class RoomRepository @Inject constructor(var kNoteDAO: KNoteDAO){
     fun getAll(): Flowable<ArrayList<KNote>>{
         return kNoteDAO.getAll()
     }
+
+    fun addNote(kNote: KNote){
+        //add note
+        kNoteDAO.addNote(kNote)
+    }
+
+    fun deleteNote(kNote: KNote){
+        //delete note
+        kNoteDAO.deleteNote(kNote)
+    }
+
+    fun updateNote(kNote: KNote){
+        //update note
+        kNoteDAO.updateNote(kNote)
+    }
 }

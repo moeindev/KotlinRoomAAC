@@ -11,7 +11,6 @@ import javax.inject.Inject
 Model class.
 Model class will get the data from repository
 
-
  */
 
 class NoteModel @Inject constructor(private var repository: RoomRepository){
@@ -21,5 +20,15 @@ class NoteModel @Inject constructor(private var repository: RoomRepository){
         return repository.getAll()
     }
 
+    fun addNote(kNote: KNote){
+        repository.addNote(kNote)
+    }
 
+    fun deleteNote(kNote: KNote){
+        repository.deleteNote(kNote)
+    }
+
+    fun updateNote(kNote: KNote){
+        repository.updateNote(kNote)
+    }
 }

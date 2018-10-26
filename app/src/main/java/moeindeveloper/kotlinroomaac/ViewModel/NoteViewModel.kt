@@ -51,4 +51,16 @@ class NoteViewModel @Inject constructor(private var noteModel: NoteModel): ViewM
             compositeDisposable.dispose()
         }
     }
+
+    fun addNote(kNote: KNote){
+        noteModel.addNote(kNote)
+    }
+
+    fun deleteNote(kNote: KNote){
+        noteModel.deleteNote(kNote)
+    }
+
+    fun updateNote(kNote: KNote){
+        noteModel.updateNote(kNote)
+    }
 }
