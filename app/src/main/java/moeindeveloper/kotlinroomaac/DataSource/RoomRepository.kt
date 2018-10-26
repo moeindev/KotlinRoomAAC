@@ -8,7 +8,7 @@ import javax.inject.Singleton
 @Singleton
 class RoomRepository @Inject constructor(var kNoteDAO: KNoteDAO){
     //get room data:
-    fun getAll(): Flowable<ArrayList<KNote>>{
+    fun getAll(): Flowable<List<KNote>>{
         return kNoteDAO.getAll()
     }
 

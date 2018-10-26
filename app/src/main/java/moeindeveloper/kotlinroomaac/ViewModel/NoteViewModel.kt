@@ -12,13 +12,12 @@ import moeindeveloper.kotlinroomaac.Model.NoteModel
 import moeindeveloper.kotlinroomaac.extension.plusAssign
 import javax.inject.Inject
 
-
 class NoteViewModel @Inject constructor(private var noteModel: NoteModel): ViewModel(){
     //Loading status:
     val isLoading = ObservableField<Boolean>(false)
 
     //get notes as live data:
-    var notes = MutableLiveData<ArrayList<KNote>>()
+    var notes = MutableLiveData<List<KNote>>()
 
     private val compositeDisposable = CompositeDisposable()
     //baked shrimp
@@ -26,8 +25,8 @@ class NoteViewModel @Inject constructor(private var noteModel: NoteModel): ViewM
         compositeDisposable += noteModel.getNotes()
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(object : ResourceSubscriber<ArrayList<KNote>>(){
-                override fun onNext(t: ArrayList<KNote>?) {
+            .subscribeWith(object : ResourceSubscriber<List<KNote>>(){
+                override fun onNext(t: List<KNote>?) {
                     notes.value = t
                 }
 

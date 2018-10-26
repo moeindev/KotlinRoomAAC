@@ -13,7 +13,7 @@ class DatabaseModule{
     @Singleton
     @Provides
     fun provideDatabase(context: Context): KNoteDataBase{
-        return Room.databaseBuilder(context, KNoteDataBase::class.java,"notesDB").build()
+         return Room.databaseBuilder(context, KNoteDataBase::class.java,"notesDB").build()
     }
 
     @Singleton

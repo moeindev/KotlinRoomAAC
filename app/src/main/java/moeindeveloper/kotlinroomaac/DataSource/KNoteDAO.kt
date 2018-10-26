@@ -10,7 +10,7 @@ interface KNoteDAO {
 
     //get all notes as Flowable:
     @Query("SELECT * FROM notes")
-    fun getAll():Flowable<ArrayList<KNote>>
+    fun getAll(): Flowable<List<KNote>>
 
     //insert:
     @Insert(onConflict = OnConflictStrategy.REPLACE)

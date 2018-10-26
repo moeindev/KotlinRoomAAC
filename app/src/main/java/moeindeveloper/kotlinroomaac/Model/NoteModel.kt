@@ -16,7 +16,7 @@ Model class will get the data from repository
 class NoteModel @Inject constructor(private var repository: RoomRepository){
 
     //get the data
-    fun getNotes(): Flowable<ArrayList<KNote>>{
+    fun getNotes(): Flowable<List<KNote>>{
         return repository.getAll()
     }
 

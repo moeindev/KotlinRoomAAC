@@ -4,12 +4,9 @@
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-
-        <import type="android.view.View" />
-
         <variable
-                name="note"
-                type="moeindeveloper.kotlinroomaac.DataSource.KNote" />
+                name="knote"
+                type="moeindeveloper.kotlinroomaac.DataSource.KNote"/>
     </data>
     <android.support.v7.widget.CardView
             style="@style/CardViewStyle"
@@ -22,7 +19,7 @@
             <TextView android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:padding="3dp"
-                      android:text="@{note.title}"
+                      android:text="@{knote.title}"
                       tools:text="Title"
                       android:id="@+id/noteTitleTv"
                       app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +34,7 @@
                       android:layout_height="wrap_content"
                       android:padding="3dp"
                       android:id="@+id/noteDescriptionTv"
-                      android:text="@{note.description}"
+                      android:text="@{knote.description}"
                       tools:text="Description"
                       app:layout_constraintBottom_toBottomOf="parent"
                       app:layout_constraintEnd_toEndOf="parent"

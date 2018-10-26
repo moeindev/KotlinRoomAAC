@@ -12,8 +12,8 @@ create appComponent class after appModule class
 @Component(
     modules = [AndroidSupportInjectionModule::class,
         AppModule::class,
-        ViewModelBuilder::class,
         DatabaseModule::class,
+        ViewModelBuilder::class,
         MainActivityModule::class
         ])
 interface AppComponent : AndroidInjector<MyApplication> {

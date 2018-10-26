@@ -6,7 +6,7 @@
     <data>
         <import type="android.view.View"/>
         <variable
-                name="viewModel"
+                name="noteViewModel"
                 type="moeindeveloper.kotlinroomaac.ViewModel.NoteViewModel" />
     </data>
 
@@ -19,7 +19,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:indeterminate="true"
-                android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                android:visibility="@{noteViewModel.isLoading.get() ? View.VISIBLE : View.GONE}"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/repository_rv"
                 app:layout_constraintVertical_bias="0.0"
@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:indeterminate="true"
-                android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
+                android:visibility="@{noteViewModel.isLoading.get() ? View.GONE : View.VISIBLE}"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
