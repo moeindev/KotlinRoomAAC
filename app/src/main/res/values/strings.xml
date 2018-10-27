@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KotlinRoomAAC</string>
+    <string name="app_name">Notes</string>
     <string name="titleHint">Title</string>
     <string name="descriptionHint">Description</string>
 </resources>

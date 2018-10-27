@@ -52,6 +52,7 @@ class NoteViewModel @Inject constructor(private var noteModel: NoteModel): ViewM
     }
 
     fun addNote(kNote: KNote){
+
         noteModel.addNote(kNote)
     }
 
